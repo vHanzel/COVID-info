@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>3. DN :: OIS 2020/2021</title>
+  <link href="knjiznice/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    body {padding-top: 70px;}
+  </style>
+  </style><link rel="icon" href="./favicon.png"/>
+  <script src="knjiznice/js/jquery-2.2.3.min.js"></script>
+  <script src="knjiznice/js/bootstrap.min.js"></script>
+  <script src="knjiznice/js/koda.js"></script>
+  <script src="https://unpkg.com/papaparse@5.3.0/papaparse.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.2.0/chart.min.js" integrity="sha512-VMsZqo0ar06BMtg0tPsdgRADvl0kDHpTbugCBBrL55KmucH6hP9zWdLIWY//OTfMnzz6xWQRxQqsUFefwHuHyg==" crossorigin="anonymous"></script>
+</head>
+<body>
+
+  <!-- ZAČETEK: Menujska vrstica na vrhu spletne strani -->
+  <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    <div class="container">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#menujska-vrstica">
+          <span class="sr-only">Prikaži menu</span>
+          <span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span>
+        </button>
+        <!-- ZAČETEK: Ime vaše aplikacije -->
+        <a class="navbar-brand" href="index.html">COVID-INFO</a>
+        <!-- KONEC: Ime vaše aplikacije -->
+      </div>
+      <div class="collapse navbar-collapse" id="menujska-vrstica">
+        <ul class="nav navbar-nav">
+          <li><a href="opis.html">Opis ideje</a></li>
+          <li><a href="nacrt.html">Načrt informacijske rešitve</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <!-- KONEC: Menujska vrstica na vrhu spletne strani -->
+
+  <!-- ZAČETEK: Opis delovanja aplikacije -->
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12 text-center">
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <h3 class="panel-title">Opis ideje, ki jo aplikacija podpira</h3>
+          </div>
+          <div class="panel-body">
+            <!-- ZAČETEK: Opis ideje, ki jo aplikacija podpira -->
+            <p>Ciljna publika aplikacije COVID-INFO so prebivalci Slovenije, ki lahko s pomočjo aplikacije izračunajo svoj BMI, nato pa jim aplikacija sporoči,
+              če imajo povišano verjetnost za hujši potek bolezni in jim svetuje naj se izogibajo regij z višjim številom aktivnih okužb. Informacije o  aktivnih okužbah na regijo
+            pa lahko preberejo iz grafa. </p>
+            <!-- KONEC: Opis ideje, ki jo aplikacija podpira -->
+          </div>
+        </div>
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <h3 class="panel-title">Uporabljeni zunanji viri podatkov</h3>
+          </div>
+          <div class="panel-body">
+            <!-- ZAČETEK: Uporabljeni zunanji viri podatkov -->
+            <p><strong>URL:</strong>https://raw.githubusercontent.com/sledilnik/data/master/csv/region-active.csv </p>
+            <p>Zunanji vir sem uporabil tako, da sem uvozil CSV datoteko s podatki o aktivnih primerih okužbe po regijah in jo nato s pomočjo knjižnice PapaParse pretvoril v JSON. S temi podatki sem izrisal stolpični graf,
+              s katerega lahko uporabnik razbere število okuženih po regijah, ter se regijam z visokim številom okužb izogiba.
+            </p>
+            <!-- KONEC: Uporabljeni zunanji viri podatkov -->
+          </div>
+        </div>
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <h3 class="panel-title">Master/detail načrtovalski vzorec</h3>
+          </div>
+          <div class="panel-body">
+            <!-- ZAČETEK: Master/detail načrtovalski vzorec -->
+            <p>Za master/detail sem uporabil dropdown meni, na katerem si lahko uporabnik izbere poljubnega pacienta in s klikom na gumb "Prikaži podatke" prikaže podatke tega pacienta.
+               prikazani podatki so: ime, priimek, spol, starost, teza, visina, telesna temperatura,
+               sportna aktivnost, bolezni, BMI. Uporabnik ima na voljo tudi direktno poizvedbo po pacientovih podatkih z vnosom ehrID.</p>
+            <!-- KONEC: Master/detail načrtovalski vzorec -->
+          </div>
+        </div>
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <h3 class="panel-title">Uporabljena tehnika za vizualizacijo podatkov</h3>
+          </div>
+          <div class="panel-body">
+            <!-- ZAČETEK: Uporabljeni zunanji viri podatkov -->
+            <p>Za vizualizacijo podatkov sem uporabil stolpični graf iz Chart.js knjižnice, Chart.js sem izbral, ker je preprost za uporabo.
+               Ta stil visualizacije sem uporabil, ker je z njim lahko pregledno predstavim podatke o številu okužb po regijah. Na y-osi je število aktivnih okužb, na x-osi pa so zapisane regije.
+                 </p>
+            <!-- KONEC: Uporabljeni zunanji viri podatkov -->
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- KONEC: Opis delovanja aplikacije -->
+
+</body>
+</html>

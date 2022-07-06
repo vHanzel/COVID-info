@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>3. DN :: OIS 2020/2021</title>
+  <link href="knjiznice/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    body {padding-top: 70px;}
+  </style>
+	</style><link rel="icon" href="./favicon.png"/>
+  <script src="knjiznice/js/jquery-2.2.3.min.js"></script>
+  <script src="knjiznice/js/bootstrap.min.js"></script>
+  <script src="knjiznice/js/koda.js"></script>
+  <script src="https://unpkg.com/papaparse@5.3.0/papaparse.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.2.0/chart.min.js" integrity="sha512-VMsZqo0ar06BMtg0tPsdgRADvl0kDHpTbugCBBrL55KmucH6hP9zWdLIWY//OTfMnzz6xWQRxQqsUFefwHuHyg==" crossorigin="anonymous"></script>  
+</head>
+<body>
+
+  <!-- ZAČETEK: Menujska vrstica na vrhu spletne strani -->
+  <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    <div class="container">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#menujska-vrstica">
+          <span class="sr-only">Prikaži menu</span>
+          <span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span>
+        </button>
+        <!-- ZAČETEK: Ime vaše aplikacije -->
+        <a class="navbar-brand" href="index.html">COVID-INFO</a>
+        <!-- KONEC: Ime vaše aplikacije -->
+      </div>
+      <div class="collapse navbar-collapse" id="menujska-vrstica">
+        <ul class="nav navbar-nav">
+          <li><a href="opis.html">Opis ideje</a></li>
+          <li><a href="nacrt.html">Načrt informacijske rešitve</a></li>
+          <li><a id="genPodatkov_btn" href="#">Generiranje podatkov</a></li>
+          <li><a href="https://ropsten.etherscan.io/address/0xEd6E74d0DCFA634FBeCA5659194a17F8e9092259#tokentxns" target="_blank">Blockchain certifikat kakovosti</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <!-- KONEC: Menujska vrstica na vrhu spletne strani -->
+
+  <!-- ZAČETEK: Vsebina aplikacije -->
+  <div class="container">
+    <div class="row">
+      
+      <div class="col-lg-12 text-center">
+        <h2>Izberite pacienta ali vnesite ehrID</h2>
+        <select id="izbiraUporabnika" style="padding-right: 10px;">
+         <option value="" disabled selected>Izberite pacienta</option> 
+        </select>
+        <button class="btn btn-primary" type="button" onclick="izberiUporabnika()">Prikaži podrobnosti</button><br>
+        <p></p>
+        <input type="text" id="ehrID" name="fname" placeholder="Vnesite ehrID pacienta">
+        <button class="btn btn-primary" type="button" onclick="vnesiteUporabnika()">Poišči pacienta</button><br>
+        <p></p>
+        <div style="background-color:#00fff338;">
+        <p id="ime"></p>
+        <p id="priimek"></p>
+        <p id="spol"></p>
+        <p id="starost"></p>
+        <p id="teza"></p>
+        <p id="visina"></p>
+        <p id="telesnaTemperatura"></p>
+        <p id="sportnoAktiven"></p>
+        <p id="bolezni"></p>
+        <p id="BMI"></p>
+        </div>
+      </div>
+      <div class="col-lg-12 text-center">
+        <h2>Izracunajte vaš BMI</h2>
+        <input type="text" id="vnesiTezo" placeholder="Vnesite svojo tezo v kg" class="form-group"><br>
+        <p></p>
+        <input type="text" id="vnesiVisino" placeholder="Vnesite svojo visino v cm"><br>
+        <p></p>
+        <button class="btn btn-primary" type="button" onclick="izpisBMI()">Izracunaj!</button><br>
+        <p id=izracunanBMI></p>
+      </div>
+      <h2 class="col-lg-12 text-center">Aktivni primeri po regijah</h2>
+      <div>
+        <canvas id="myChart"></canvas>
+      </div>
+    </div>
+  </div>
+  <!-- KONEC: Vsebina aplikacije -->
+
+</body>
+</html>
